@@ -3,15 +3,118 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 20px;
+    }
+    .cartheader{
+        padding: 20px;
+    }
+    .itemsloop{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        border: solid 0.5px gray;
+        border-radius: 5px;
+        flex: 0 0 70%;
+    }
+    .item{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 95%;
+        align-self: center;
+        padding: 10px;
+        border-bottom: solid 0.5px gray;  
+    }
+    .cartdetails{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+        flex: 0 0 30%;
+    }
+    .itemcontent{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+    .itemcontent img{
+        width: 150px;
+    }
+    .itemdetails{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        flex-direction: column;
+    }
+    .itemqty{
+        border: solid 0.5px gray;
+        padding: 5px;
+    }
+    .itemqtyselect{
+        border: none;
+        outline: none;
+    }
+    .coupon{
+        border: solid 0.5px gray;
+        border-radius: 5px;
+        width: 100%;
+        padding: 10px;
+    }
+    .checkout{
+        border: solid 0.5px gray;
+        border-radius: 5px;
+        width: 100%;
+        padding: 10px;
+    }
+    .pricetable{
+
     }
 </style>
 <section>
-    <h1>My Cart<span>(10)</span></h1>
+    <h1 [className]="'cartheader'">My Cart<span>(10)</span></h1>
     <div [className]="'cartbody'">
-        <div>loop</div>
-        <div>
-            <div>Coupon</div>
-            <div>Table</div>
+        <div [className]="'itemsloop'">
+            <div [className]="'item'">
+                <div [className]="'itemcontent'">
+                    <img src="assets/images/tshirt-1.jpg" alt="">
+                    <div>
+                        <h4>T-shirts with a multiple colors, for man and lady</h4>
+                        <h4>Size: medium, Color:blue, Material: cotton</h4>
+                        <h4>Seller: alter market</h4>
+                        <div>
+                            <button>Remove</button>
+                            <button>Save for later</button>
+                        </div>
+                    </div>
+                </div>
+                <div [className]="'itemdetails'">
+                    <h4>$78.99</h4>
+                    <div [className]="'itemqty'">
+                        <label for="quantity">Qty:</label>
+                        <select [className]="'itemqtyselect'" name="quantity">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                          </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div [className]="'cartdetails'">
+            <div [className]="'coupon'">
+                <h3>have a coupon?</h3>
+            </div>
+            <div [className]="'checkout'">
+                <div [className]="'pricetable'">
+
+                </div>
+            </div>
         </div>
     </div>
 </section>
