@@ -1,8 +1,10 @@
 <style>
-
+  .main{
+    height: 100vw;
+    padding: 0 150px 0 150px;
+  }
 </style>
-
-<main class="main">
-  
-</main>
-<router-outlet />
+<div [className]="'main'">
+  <app-header/>
+  <app-cart/>
+</div>

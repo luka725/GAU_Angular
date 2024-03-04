@@ -1,0 +1,64 @@
+<style>
+    .header{
+        height: 20px;
+        padding: 50px 0 50px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 50px;
+    }
+    .logo a{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+    }
+    .logo a img{
+        width: 60px;
+    }
+    .icons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 20px;
+    }
+    .icons a{
+        text-align: center;
+        list-style: none;
+        text-decoration: none;
+        color: gray;
+    }
+    .icons a i{
+        font-size: x-large;
+    }
+    .icons a p{
+        margin-top: 5px;
+    }
+</style>
+<header [className]="'header'">
+    <div [className]="'logo'">
+        <a href="">
+            <img src="assets/images/bag-icon.png" alt="">
+            <h1 [className]="'brand'">Brand</h1>
+        </a>
+    </div>
+    <div [className]="'icons'">
+        <a href="">
+            <i class="fa-solid fa-user"></i>
+            <p>Profile</p>
+        </a>
+        <a href="">
+            <i class="fa-solid fa-message"></i>
+            <p>Message</p>
+        </a>
+        <a href="">
+            <i class="fas fa-heart"></i>
+            <p>Orders</p>
+        </a>
+        <a href="">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <p>My Cart</p>
+        </a>
+    </div>
+</header>
