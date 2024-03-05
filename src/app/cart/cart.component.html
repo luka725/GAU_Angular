@@ -164,6 +164,35 @@
         font-weight: 400;
         font-size: 16px;
     }
+    .loopbtns{
+        width: 95%;
+        padding: 24px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .bcktoshpbtn{
+        width: 159px;
+        height: 40px;
+        border-radius: 6px;
+        background: linear-gradient(to right, #127FFF, #0067FF);
+        font-family: 'Inter-Bold', sans-serif;
+        border: 0px;
+        font-weight: 500;
+        font-size: 16px;
+        color: #FFFFFF;
+    }
+    .rmallbtn{
+        width: 115px;
+        height: 40px;
+        border-radius: 6px;
+        background: #FFFFFF;
+        font-family: 'Inter-Bold', sans-serif;
+        border: solid 1px #DEE2E7;
+        font-weight: 500;
+        font-size: 16px;
+        color: #0D6EFD;
+    }
 </style>
 <section [className]="'sectioncart'">
     <h3 [className]="'cartheader'">My Cart <span> (3)</span></h3>
@@ -173,9 +202,9 @@
                 <div [className]="'itemcontent'">
                     <img src="assets/images/tshirt-1.jpg" alt="">
                     <div [className]="'info'">
-                        <h4 [className]="'producttitle'">T-shirts with a multiple colors, for man and lady</h4>
-                        <h4 [className]="'itemmeta'">Size: medium, Color:blue, Material: cotton</h4>
-                        <h4 [className]="'itemmeta'">Seller: alter market</h4>
+                        <h4 [className]="'producttitle'">T-shirts with multiple colors, for men and lady</h4>
+                        <h4 [className]="'itemmeta'">Size: medium, Color: blue,  Material: Plastic</h4>
+                        <h4 [className]="'itemmeta'">Seller: Artel Market</h4>
                         <div [className]="'btns'">
                             <button [className]="'rmbtn'">Remove</button>
                             <button [className]="'savebtn'">Save for later</button>
@@ -184,6 +213,37 @@
                 </div>
                 <div [className]="'itemdetails'">
                     <h4 [className]="'price'">$78.99</h4>
+                    <div [className]="'itemqty'">
+                        <label for="quantity">Qty:</label>
+                        <select [className]="'itemqtyselect'" name="quantity">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                          </select>
+                    </div>
+                </div>
+            </div>
+            <div [className]="'item'">
+                <div [className]="'itemcontent'">
+                    <img src="assets/images/tshirt-1.jpg" alt="">
+                    <div [className]="'info'">
+                        <h4 [className]="'producttitle'">T-shirts with multiple colors, for men and lady</h4>
+                        <h4 [className]="'itemmeta'">Size: medium, Color: blue,  Material: Plastic</h4>
+                        <h4 [className]="'itemmeta'">Seller: Best factory LLC</h4>
+                        <div [className]="'btns'">
+                            <button [className]="'rmbtn'">Remove</button>
+                            <button [className]="'savebtn'">Save for later</button>
+                        </div>
+                    </div>
+                </div>
+                <div [className]="'itemdetails'">
+                    <h4 [className]="'price'">$39.00</h4>
                     <div [className]="'itemqty'">
                         <label for="quantity">Qty:</label>
                         <select [className]="'itemqtyselect'" name="quantity">
@@ -200,9 +260,9 @@
                 <div [className]="'itemcontent'">
                     <img src="assets/images/tshirt-1.jpg" alt="">
                     <div [className]="'info'">
-                        <h4 [className]="'producttitle'">T-shirts with a multiple colors, for man and lady</h4>
-                        <h4 [className]="'itemmeta'">Size: medium, Color:blue, Material: cotton</h4>
-                        <h4 [className]="'itemmeta'">Seller: alter market</h4>
+                        <h4 [className]="'producttitle'">T-shirts with multiple colors, for men and lady</h4>
+                        <h4 [className]="'itemmeta'">Size: medium, Color: blue,  Material: Plastic</h4>
+                        <h4 [className]="'itemmeta'">Seller: Artel Market</h4>
                         <div [className]="'btns'">
                             <button [className]="'rmbtn'">Remove</button>
                             <button [className]="'savebtn'">Save for later</button>
@@ -210,7 +270,7 @@
                     </div>
                 </div>
                 <div [className]="'itemdetails'">
-                    <h4 [className]="'price'">$78.99</h4>
+                    <h4 [className]="'price'">$170.50</h4>
                     <div [className]="'itemqty'">
                         <label for="quantity">Qty:</label>
                         <select [className]="'itemqtyselect'" name="quantity">
@@ -222,6 +282,10 @@
                           </select>
                     </div>
                 </div>
+            </div>
+            <div [className]="'loopbtns'">
+                <button [className]="'bcktoshpbtn'">Back to shop</button>
+                <button [className]="'rmallbtn'">Remove all</button>
             </div>
         </div>
         <div [className]="'cartdetails'">
