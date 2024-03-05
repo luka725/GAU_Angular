@@ -1,4 +1,9 @@
 <style>
+    .sectioncart{
+        background-color: #F7FAFC;
+        min-height: 70vh;
+        padding: 40px 150px 20px 150px;
+    }
     .cartbody{
         display: flex;
         flex-direction: row;
@@ -8,16 +13,24 @@
         padding: 20px;
     }
     .cartheader{
-        padding: 20px;
+        font-weight: 600;
+        font-size: 24px;
+        letter-spacing: -0.2px;
+        line-height: 32px;
+        margin: 0;
+        padding: 0 20px 0 20px;
+        color: #1C1C1C;
+        font-family: 'Inter-Bold', sans-serif;
     }
     .itemsloop{
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        border: solid 0.5px gray;
-        border-radius: 5px;
+        border: solid 1px #DEE2E7;
+        border-radius: 6px;
         flex: 0 0 70%;
+        background-color: #FFFFFF;
     }
     .item{
         display: flex;
@@ -25,8 +38,8 @@
         justify-content: space-between;
         width: 95%;
         align-self: center;
-        padding: 10px;
-        border-bottom: solid 0.5px gray;  
+        padding: 20px 10px 10px 10px;
+        border-bottom: solid 1px #DEE2E7;  
     }
     .cartdetails{
         display: flex;
@@ -39,10 +52,15 @@
     .itemcontent{
         display: flex;
         flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
         gap: 20px;
     }
     .itemcontent img{
-        width: 150px;
+        width: 80px;
+        height: 80px;
+        border: solid 1px #DEE2E7;
+        border-radius: 6px;
     }
     .itemdetails{
         display: flex;
@@ -52,6 +70,7 @@
     }
     .itemqty{
         border: solid 0.5px gray;
+        border-radius: 6px;
         padding: 5px;
     }
     .itemqtyselect{
@@ -70,29 +89,128 @@
         width: 100%;
         padding: 10px;
     }
-    .pricetable{
-
+    .pricetable div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .chckbtn{
+        width: 100%;
+    }
+    .producttitle{
+        font-family: 'Inter-Bold', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #1C1C1C;
+        margin: 0;
+        padding-bottom: 10px;
+    }
+    .itemmeta{
+        font-family: 'Inter-Regular', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        letter-spacing: -0.2px;
+        color: #8B96A5;
+        margin: 0;
+        padding: 0;
+        line-height: 20px;
+    }
+    .btns{
+        display: flex;
+        gap: 10px;
+        padding: 10px 0 10px 0;
+    }
+    .rmbtn{
+        height: 30px;
+        border: solid 1px #DEE2E7;
+        border-radius: 6px;
+        padding: 0px, 10px, 0px, 10px;
+        background-color: #FFFFFF;
+        font-family: 'Inter-Bold', sans-serif;
+        line-height: 15.73px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #FA3434;
+    }
+    .savebtn{
+        height: 30px;
+        border: solid 1px #DEE2E7;
+        border-radius: 6px;
+        padding: 0px, 10px, 0px, 10px;
+        background-color: #FFFFFF;
+        font-family: 'Inter-Bold', sans-serif;
+        line-height: 15.73px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #0D6EFD;
+    }
+    .price{
+        font-family: 'Inter-Bold', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #1C1C1C;
+    }
+    .itemqty label{
+        font-family: 'Inter-Regular', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+    }
+    .itemqtyselect{
+        width: 123px;
+        height: 40px;
+        font-family: 'Inter-Regular', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
     }
 </style>
-<section>
-    <h1 [className]="'cartheader'">My Cart<span>(10)</span></h1>
+<section [className]="'sectioncart'">
+    <h3 [className]="'cartheader'">My Cart <span> (3)</span></h3>
     <div [className]="'cartbody'">
         <div [className]="'itemsloop'">
             <div [className]="'item'">
                 <div [className]="'itemcontent'">
                     <img src="assets/images/tshirt-1.jpg" alt="">
-                    <div>
-                        <h4>T-shirts with a multiple colors, for man and lady</h4>
-                        <h4>Size: medium, Color:blue, Material: cotton</h4>
-                        <h4>Seller: alter market</h4>
-                        <div>
-                            <button>Remove</button>
-                            <button>Save for later</button>
+                    <div [className]="'info'">
+                        <h4 [className]="'producttitle'">T-shirts with a multiple colors, for man and lady</h4>
+                        <h4 [className]="'itemmeta'">Size: medium, Color:blue, Material: cotton</h4>
+                        <h4 [className]="'itemmeta'">Seller: alter market</h4>
+                        <div [className]="'btns'">
+                            <button [className]="'rmbtn'">Remove</button>
+                            <button [className]="'savebtn'">Save for later</button>
                         </div>
                     </div>
                 </div>
                 <div [className]="'itemdetails'">
-                    <h4>$78.99</h4>
+                    <h4 [className]="'price'">$78.99</h4>
+                    <div [className]="'itemqty'">
+                        <label for="quantity">Qty:</label>
+                        <select [className]="'itemqtyselect'" name="quantity">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                          </select>
+                    </div>
+                </div>
+            </div>
+            <div [className]="'item'">
+                <div [className]="'itemcontent'">
+                    <img src="assets/images/tshirt-1.jpg" alt="">
+                    <div [className]="'info'">
+                        <h4 [className]="'producttitle'">T-shirts with a multiple colors, for man and lady</h4>
+                        <h4 [className]="'itemmeta'">Size: medium, Color:blue, Material: cotton</h4>
+                        <h4 [className]="'itemmeta'">Seller: alter market</h4>
+                        <div [className]="'btns'">
+                            <button [className]="'rmbtn'">Remove</button>
+                            <button [className]="'savebtn'">Save for later</button>
+                        </div>
+                    </div>
+                </div>
+                <div [className]="'itemdetails'">
+                    <h4 [className]="'price'">$78.99</h4>
                     <div [className]="'itemqty'">
                         <label for="quantity">Qty:</label>
                         <select [className]="'itemqtyselect'" name="quantity">
@@ -112,7 +230,24 @@
             </div>
             <div [className]="'checkout'">
                 <div [className]="'pricetable'">
-
+                    <div>
+                        <p>Subtotal:</p>
+                        <p>$1403.95</p>
+                    </div>
+                    <div>
+                        <p>Discount:</p>
+                        <p>- $60.00</p>
+                    </div>
+                    <div>
+                        <p>Tax:</p>
+                        <p>+ $14.00</p>
+                    </div>
+                    <hr>
+                    <div>
+                        <p>Total:</p>
+                        <p>$1357.97</p>
+                    </div>
+                    <button [className]="'chckbtn'">Checkout</button>
                 </div>
             </div>
         </div>

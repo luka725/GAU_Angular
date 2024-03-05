@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Inter-Bold';
+    src: url('./assets/fonts/Inter/Inter-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Inter-Regular';
+    src: url('./assets/fonts/Inter/Inter-Regular.ttf') format('truetype');
+}
