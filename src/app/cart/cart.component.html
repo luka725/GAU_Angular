@@ -78,16 +78,56 @@
         outline: none;
     }
     .coupon{
-        border: solid 0.5px gray;
-        border-radius: 5px;
+        border: solid 1px #DEE2E7;
+        border-radius: 6px;
         width: 100%;
-        padding: 10px;
+        padding: 20px;
+        background-color: #FFFFFF;
+    }
+    .coupon h3, .coupon input{
+        font-size: 16px;
+        font-family: 'Inter-Regular', sans-serif;
+        font-weight: 400;
+    }
+    .coupon input{
+        height: 40px;
+        border: solid 1px #DEE2E7;
+        border-right: 0;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        outline: #DEE2E7;
+        width: 164px;
+    }
+    .coupon .applybtn{
+        height: 44px;
+        width: 85px;
+        border: solid 1px #DEE2E7;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        align-self: center;
+        color: #0D6EFD;
+        font-family: 'Inter-Bold', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        background-color: #FFFFFF;
     }
     .checkout{
-        border: solid 0.5px gray;
-        border-radius: 5px;
+        border: solid 1px #DEE2E7;
+        border-radius: 6px;
+        background-color: #FFFFFF;
         width: 100%;
-        padding: 10px;
+        padding: 20px;
+        box-shadow: 0px 4px 10px 0px #3838381A;
+    }
+    .checkout p{
+        margin: 5px 0 5px 0;
+        font-family: 'Inter-Regular', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        color: #505050;
+    }
+    .checkout hr{
+        border-color: #E4E4E4;
     }
     .pricetable div{
         display: flex;
@@ -96,6 +136,17 @@
     }
     .chckbtn{
         width: 100%;
+        background-color: #00B517;
+        height: 54px;
+        padding: 0px, 20px, 0px, 20px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        margin: 10px 0 10px 0;
+        font-size: 18px;
+        font-family: 'Inter-Bold', sans-serif;
+        font-weight: 500;
+        color: #FFFFFF;
     }
     .producttitle{
         font-family: 'Inter-Bold', sans-serif;
@@ -176,22 +227,50 @@
         height: 40px;
         border-radius: 6px;
         background: linear-gradient(to right, #127FFF, #0067FF);
-        font-family: 'Inter-Bold', sans-serif;
+        font-family: 'Inter-Regular', sans-serif;
         border: 0px;
         font-weight: 500;
         font-size: 16px;
         color: #FFFFFF;
+    }
+    .bcktoshpbtn i{
+        padding-right: 15px;
     }
     .rmallbtn{
         width: 115px;
         height: 40px;
         border-radius: 6px;
         background: #FFFFFF;
-        font-family: 'Inter-Bold', sans-serif;
+        font-family: 'Inter-Regular', sans-serif;
         border: solid 1px #DEE2E7;
         font-weight: 500;
         font-size: 16px;
         color: #0D6EFD;
+    }
+    .total p{
+        font-weight: 600;
+        font-size: 16px;
+        font-family: 'Inter-Bold', sans-serif;
+        color: #1C1C1C;
+    }
+    .discount{
+        color: #00B517 !important;
+    }
+    .tax{
+        color: #FA3434 !important;
+    }
+    .paymentmethods a img{
+        width: 34px;
+        height: 22px;
+        background: cover;
+        border: solid 1px #DEE2E7;
+        border-radius: 6px;
+    }
+    .paymentmethods{
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        padding: 20px;
     }
 </style>
 <section [className]="'sectioncart'">
@@ -284,13 +363,14 @@
                 </div>
             </div>
             <div [className]="'loopbtns'">
-                <button [className]="'bcktoshpbtn'">Back to shop</button>
+                <button [className]="'bcktoshpbtn'"><i class="fa-solid fa-arrow-left"></i>Back to shop</button>
                 <button [className]="'rmallbtn'">Remove all</button>
             </div>
         </div>
         <div [className]="'cartdetails'">
             <div [className]="'coupon'">
-                <h3>have a coupon?</h3>
+                <h3>Have a coupon?</h3>
+                <input placeholder="Add coupon" type="text"><button [className]="'applybtn'">Apply</button>
             </div>
             <div [className]="'checkout'">
                 <div [className]="'pricetable'">
@@ -300,18 +380,35 @@
                     </div>
                     <div>
                         <p>Discount:</p>
-                        <p>- $60.00</p>
+                        <p [className]="'discount'">- $60.00</p>
                     </div>
                     <div>
                         <p>Tax:</p>
-                        <p>+ $14.00</p>
+                        <p [className]="'tax'">+ $14.00</p>
                     </div>
                     <hr>
-                    <div>
+                    <div [className]="'total'">
                         <p>Total:</p>
                         <p>$1357.97</p>
                     </div>
                     <button [className]="'chckbtn'">Checkout</button>
+                    <div [className]="'paymentmethods'">
+                        <a href="">
+                            <img src="assets/images/amex.jpg" alt="">
+                        </a>
+                        <a href="">
+                            <img src="assets/images/mastercard.jpg" alt="">
+                        </a>
+                        <a href="">
+                            <img src="assets/images/pp.png" alt="">
+                        </a>
+                        <a href="">
+                            <img src="assets/images/visa.png" alt="">
+                        </a>
+                        <a href="">
+                            <img src="assets/images/ap.png" alt="">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
