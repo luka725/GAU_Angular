@@ -1,11 +1,11 @@
 <style>
     .header{
-        height: 20px;
-        padding: 50px 150px 50px 150px;
+        height: 86px;
+        padding: 0 150px 0 150px;
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: space-between;
-        margin-bottom: 50px;
     }
     .logo a{
         display: flex;
@@ -14,8 +14,9 @@
         align-items: center;
         text-decoration: none;
     }
-    .logo a img{
-        width: 60px;
+    .logo a i{
+        color: #8CB7F5;
+        font-size: xx-large;
     }
     .icons{
         display: flex;
@@ -27,19 +28,25 @@
         text-align: center;
         list-style: none;
         text-decoration: none;
-        color: gray;
+        color: #8B96A5;
     }
     .icons a i{
         font-size: x-large;
     }
     .icons a p{
         margin-top: 5px;
+        font-family: 'Inter-Regular', sans-serif;
+    }
+    .brand{
+        padding-left: 10px;
+        color: #8CB7F5;
+        font-family: 'Inter-Bold', sans-serif;
     }
 </style>
 <header [className]="'header'">
     <div [className]="'logo'">
         <a href="">
-            <img src="assets/images/bag-icon.png" alt="">
+            <i class="fa-solid fa-bag-shopping"></i>
             <h1 [className]="'brand'">Brand</h1>
         </a>
     </div>
