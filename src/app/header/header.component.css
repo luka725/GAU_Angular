@@ -1,0 +1,43 @@
+.header{
+    height: 86px;
+    padding: 0 150px 0 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo a{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.logo a i{
+    color: #8CB7F5;
+    font-size: xx-large;
+}
+.icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+.icons a{
+    text-align: center;
+    list-style: none;
+    text-decoration: none;
+    color: #8B96A5;
+}
+.icons a i{
+    font-size: x-large;
+}
+.icons a p{
+    margin-top: 5px;
+    font-family: 'Inter-Regular', sans-serif;
+}
+.brand{
+    padding-left: 10px;
+    color: #8CB7F5;
+    font-family: 'Inter-Bold', sans-serif;
+}
