@@ -2,6 +2,15 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+interface Coupon{
+  id:number,
+  code:string,
+  discount:number
+}
+interface Coupons{
+  items: Coupon[]
+}
+
 interface Product{
   id: number,
   title: string,
@@ -73,6 +82,25 @@ export class CartComponent {
     items: [this.product1, this.product2, this.product3],
   }
 
+  coupon1: Coupon = {
+    id: 1,
+    code: "123",
+    discount: 50
+  }
+  coupon2: Coupon = {
+    id: 1,
+    code: "1234",
+    discount: 60
+  }
+  coupon3: Coupon = {
+    id: 1,
+    code: "1235",
+    discount: 80
+  }
+
+  coupons:Coupons  = {
+    items: [this.coupon1, this.coupon2, this.coupon3]
+  }
   updateStockPrice(){
     for (const product of this.products.items) {
         product.stockprice = product.price * product.qty
@@ -92,5 +120,15 @@ export class CartComponent {
   }
   hideProduct(){
     
+  }
+  inputValue:string = "";
+  discount:number = 0;
+  applyCoupon(){
+    const inputCode = this.inputValue.trim().toUpperCase();
+    if (this.coupons.items.some(coupon => coupon.code === inputCode)) {
+      
+    } else {
+      
+    }
   }
 }

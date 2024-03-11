@@ -33,7 +33,7 @@
         <div [className]="'cartdetails'">
             <div [className]="'coupon'">
                 <h3>Have a coupon?</h3>
-                <input placeholder="Add coupon" type="text"><button [className]="'applybtn'">Apply</button>
+                <input [(ngModel)]="inputValue" placeholder="Add coupon" type="text"><button [className]="'applybtn'" (click)="applyCoupon()">Apply</button>
             </div>
             <div [className]="'checkout'">
                 <div [className]="'pricetable'">
@@ -43,7 +43,7 @@
                     </div>
                     <div>
                         <p>Discount:</p>
-                        <p [className]="'discount'">- $60.00</p>
+                        <p [className]="'discount'">- ${{discount}}</p>
                     </div>
                     <div>
                         <p>Tax:</p>
@@ -52,7 +52,7 @@
                     <hr>
                     <div [className]="'total'">
                         <p>Total:</p>
-                        <p>$1357.97</p>
+                        <p>${{SubtotalPrice - discount}}</p>
                     </div>
                     <button [className]="'chckbtn'">Checkout</button>
                     <div [className]="'paymentmethods'">
