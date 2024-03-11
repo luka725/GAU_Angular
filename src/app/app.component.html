@@ -1,8 +1,6 @@
-<style>
-
-</style>
-
 <main class="main">
-  {{getNewData()}}
+    <div (click)="setCatid(0)">All</div>
+    <div *ngFor="let cat of getCats()" (click)="setCatid(cat.id)">{{cat.name}}</div>
+    <input type="text" [(ngModel)]="inputValue" (keyup.enter)="addItem()"  placeholder="Add a new task insdie {} category">
+    <div *ngFor="let item of getList()">{{item.name}}<span (click)="setCatid(item.cat)"> |{{getCatNameByItemId(item.cat)}}|</span><span (click)="removeItem(item.id)" > "delete"</span></div>
 </main>
-<router-outlet />
