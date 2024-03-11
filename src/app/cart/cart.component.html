@@ -2,7 +2,7 @@
     <h3 [className]="'cartheader'">My Cart <span> (3)</span></h3>
     <div [className]="'cartbody'">
         <div [className]="'itemsloop'">
-            <div [className]="'item'" *ngFor="let product of products.products">
+            <div [class]="'item'" *ngFor="let product of products.items">
                 <div [className]="'itemcontent'">
                     <img src="assets/images/{{product.image}}" alt="">
                     <div [className]="'info'">
@@ -10,16 +10,16 @@
                         <h4 [className]="'itemmeta'">Size: {{product.size}}, Color: {{product.color}},  Material: {{product.material}}</h4>
                         <h4 [className]="'itemmeta'">Seller: {{product.seller}}</h4>
                         <div [className]="'btns'">
-                            <button [className]="'rmbtn'">Remove</button>
+                            <button (click)="hideProduct()" [className]="'rmbtn'">Remove</button>
                             <button [className]="'savebtn'">Save for later</button>
                         </div>
                     </div>
                 </div>
                 <div [className]="'itemdetails'">
-                    <h4 [className]="'price'">${{product.price}}</h4>
+                    <h4 [className]="'price'">${{product.stockprice}}</h4>
                     <div [className]="'itemqty'">
                         <label for="quantity">Qty:</label>
-                        <select [className]="'itemqtyselect'" name="{{product.id}}">
+                        <select [(ngModel)]="product.qty" (ngModelChange)="updateStockPrice()" [className]="'itemqtyselect'" name="{{product.id}}">
                             <option *ngFor="let _ of [].constructor(product.quantity); let i = index" value="{{i+1}}">{{i+1}}</option>
                           </select>
                     </div>
@@ -39,7 +39,7 @@
                 <div [className]="'pricetable'">
                     <div>
                         <p>Subtotal:</p>
-                        <p>$1403.95</p>
+                        <p>${{SubtotalPrice}}</p>
                     </div>
                     <div>
                         <p>Discount:</p>

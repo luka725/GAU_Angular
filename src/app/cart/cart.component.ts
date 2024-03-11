@@ -13,9 +13,10 @@ interface Product{
   material:string,
   seller: string,
   qty: number, 
+  stockprice: number
 }
 interface Products{
-  products: Product[]
+  items: Product[]
 }
 
 @Component({
@@ -30,44 +31,66 @@ export class CartComponent {
     id: 1,
     title: "T-shirts with multiple colors, for men and lady",
     image: "tshirt-1.jpg",
-    price: 78.99,
+    price: 10.95,
     quantity: 9,
     seller: "Artel Market",
     size: "medium",
     color: "blue",
     material: "lastic",
-    qty: 0
+    qty: 1,
+    stockprice: 10.95
   }
 
   product2: Product = {
     id: 2,
     title: "T-shirts with multiple colors, for men and lady",
     image: "tshirt-1.jpg",
-    price: 39.15,
+    price: 40.55,
     quantity: 5,
     seller: "Artel Market",
     size: "medium", 
     color: "blue", 
     material: "lastic",
-    qty: 0
+    qty: 1,
+    stockprice: 40.55
   }
 
   product3: Product = {
     id: 3,
     title: "T-shirts with multiple colors, for men and lady",
     image: "tshirt-1.jpg",
-    price: 170.55,
+    price: 39.99,
     quantity: 8,
     seller: "Best factory LLC",
     size: "medium", 
     color: "blue", 
     material: "lastic",
-    qty: 0
+    qty: 1,
+    stockprice: 39.99
   }
 
   products:Products = {
-    products: [this.product1, this.product2, this.product3],
+    items: [this.product1, this.product2, this.product3],
   }
 
-  selectedValues: number[] = []
+  updateStockPrice(){
+    for (const product of this.products.items) {
+        product.stockprice = product.price * product.qty
+        product.stockprice = Number(product.stockprice.toFixed(2))
+    }
+    this.updateTotalPrice()
+  }
+
+  SubtotalPrice:number = 0; 
+  
+  updateTotalPrice(){
+    this.SubtotalPrice = 0
+    for (const product of this.products.items) {
+      this.SubtotalPrice += product.stockprice
+    }
+    this.SubtotalPrice = Number(this.SubtotalPrice.toFixed(2))
+  }
+  hideProduct(){
+    
+  }
 }
