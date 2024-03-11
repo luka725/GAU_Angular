@@ -90,7 +90,12 @@ export class NewServiceService {
     this.list.splice(index, 1);
   }
   getCategoryById(id:number){
-    let index = this.categories.findIndex(obj => obj.id === id)
-    return this.categories[index]
+    if(id == 0){
+      return "All"
+    }
+    else{
+      let index = this.categories.findIndex(obj => obj.id === id)
+      return this.categories[index].name
+    }
   }
 }

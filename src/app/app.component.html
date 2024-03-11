@@ -1,6 +1,20 @@
 <main class="main">
-    <div (click)="setCatid(0)">All</div>
-    <div *ngFor="let cat of getCats()" (click)="setCatid(cat.id)">{{cat.name}}</div>
-    <input type="text" [(ngModel)]="inputValue" (keyup.enter)="addItem()"  placeholder="Add a new task insdie {} category">
-    <div *ngFor="let item of getList()">{{item.name}}<span (click)="setCatid(item.cat)"> |{{getCatNameByItemId(item.cat)}}|</span><span (click)="removeItem(item.id)" > "delete"</span></div>
+    <div class="container">
+        <div class="menu">
+            <div [ngClass]="{ 'selected-category': catId === 0 }" (click)="setCatid(0)" >All</div>
+            <div *ngFor="let cat of getCats()" [ngClass]="{ 'selected-category': cat.id === catId }" (click)="setCatid(cat.id)">{{cat.name}}</div>
+        </div>
+        <div class="content">
+            <h1>All Tasks</h1>
+            <input class="text-input" type="text" [(ngModel)]="inputValue" (keyup.enter)="addItem()"  placeholder="Add a new task insdie '{{getCatNameById()}}' category">
+            <div class="items-list">
+                <div class="list-item" *ngFor="let item of getList()">
+                    <span class="item-checkbox"><input type="checkbox"></span>
+                    <span class="item-text">{{item.name}}</span>
+                    <span class="item-category" (click)="setCatid(item.cat)">{{getCatNameByItemId(item.cat)}}</span>
+                    <span class="deletebtn" (click)="removeItem(item.id)" ><img src="../assets/icons/delete.svg" alt=""></span>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>

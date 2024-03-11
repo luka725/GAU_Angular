@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato Regular'), local('Lato-Regular'),
+         url('./assets/fonts/lato/Lato-Regular.ttf') format('woff2');
+}
+
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Lato Bold'), local('Lato-Bold'),
+            url('./assets/fonts/lato/Lato-Bold.ttf') format('ttf');
+}
+body {
+    font-family: 'Lato', sans-serif;
+}

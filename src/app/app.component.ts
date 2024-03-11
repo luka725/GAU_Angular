@@ -37,4 +37,7 @@ export class AppComponent {
   getCatNameByItemId(itemId:number){
     return this.Service.getCategoryByItemId(itemId);
   }
+  getCatNameById(){
+    return this.Service.getCategoryById(this.catId)
+  }
 }
