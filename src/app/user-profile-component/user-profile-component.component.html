@@ -1,0 +1,11 @@
+<h2>List of Users</h2>
+
+<div class="user-container">
+  <div class="user-detail">ID: {{ getUser().id }}</div>
+  <div class="user-detail">Email: {{ getUser().email }}</div>
+  <div class="user-detail">Name: {{ getUser().name }}</div>
+  <div class="user-detail" [ngClass]="{ 'status-bad': getUser().status === 'bad', 'status-good': getUser().status === 'good' }">
+    Status: {{ getUser().status }}
+  </div>
+  <hr>
+</div>

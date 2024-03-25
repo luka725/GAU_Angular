@@ -1,0 +1,30 @@
+.user-container {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.user-container h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #333;
+}
+
+.user-detail {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+  
+.user-container hr {
+    margin-top: 20px;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+.status-bad {
+    color: red;
+}
+
+.status-good {
+    color: green;
+}

@@ -1,0 +1,11 @@
+<h2>List of Users</h2>
+
+<div *ngFor="let user of getUsers()" class="user-container">
+  <div class="user-detail">ID: {{ user.id }}</div>
+  <div class="user-detail" (click)="singleUser(user.id)">Email: {{ user.email }}</div>
+  <div class="user-detail">Name: {{ user.name }}</div>
+  <div class="user-detail" [ngClass]="{ 'status-bad': user.status === 'bad', 'status-good': user.status === 'good' }">
+    Status: {{ user.status }}
+  </div>
+  <hr>
+</div>
