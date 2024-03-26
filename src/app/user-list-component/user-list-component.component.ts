@@ -17,6 +17,6 @@ export class UserListComponentComponent {
     return this.Service.UsersList;
   }
   singleUser(id:number){
-      this.router.navigateByUrl(`/users/${id}`);
+    this.router.navigate(['/users', id]);
   }
 }

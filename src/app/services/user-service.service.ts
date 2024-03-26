@@ -14,32 +14,32 @@ export class UserServiceService {
   UsersList:User[] = [
     {
       id: 1,
-      email: "email",
-      name: "name",
+      email: "john.doe@example.com",
+      name: "John Doe",
       status: "bad"
     },
     {
       id: 2,
-      email: "email",
-      name: "name",
+      email: "alice.smith@example.com",
+      name: "Alice Smith",
       status: "good"
     },
     {
       id: 3,
-      email: "email",
-      name: "name",
+      email: "michael.johnson@example.com",
+      name: "Michael Johnson",
       status: "bad"
     },
     {
       id: 4,
-      email: "email",
-      name: "name",
+      email: "emily.brown@example.com",
+      name: "Emily Brown",
       status: "good"
     },
     {
       id: 5,
-      email: "email",
-      name: "name",
+      email: "david.wilson@example.com",
+      name: "David Wilson",
       status: "good"
     },
   ]
