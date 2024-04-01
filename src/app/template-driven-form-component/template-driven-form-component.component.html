@@ -1,0 +1,5 @@
+<form #LukasForm="ngForm" (ngSubmit)="SaveInput(LukasForm)">
+    <label> Gimme ur name:</label>
+    <input type="text" [ngModel]="usr.name" name="name">
+    <button type="submit">Enter</button>
+</form>
