@@ -1,0 +1,12 @@
+main{
+    min-height: 100vh;
+}
+app-header{
+    display: grid;
+    align-items: center;
+    height: 10vh;
+}
+app-content{
+    display: block;
+    height: 90vh;
+}

@@ -1,3 +1,7 @@
 import { Routes } from '@angular/router';
-
-export const routes: Routes = [];
+import { SliderComponent } from './slider/slider.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+export const routes: Routes = [
+    { path: '', component: SliderComponent },
+    { path: 'checkout', component: CheckoutComponent}
+];

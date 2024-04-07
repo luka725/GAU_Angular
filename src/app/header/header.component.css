@@ -1,0 +1,14 @@
+header {
+    width: 100%;
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto auto;
+}  
+app-navmenu {
+    justify-self: flex-end;
+    align-self: center;
+}
+app-contact {
+    justify-self: center;
+    align-self: center;
+}

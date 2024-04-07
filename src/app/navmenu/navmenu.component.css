@@ -1,0 +1,11 @@
+.navmenu{
+    display: flex;
+    justify-content: space-between;
+    width: 30vw;
+}
+.navmenu div i{
+    margin-left: 5px;
+}
+.navmenu div{
+    cursor: pointer;
+}
