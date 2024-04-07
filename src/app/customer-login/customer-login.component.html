@@ -1,0 +1,13 @@
+<div [ngClass]="'logincontainer'">
+    <h3>Returning Customer</h3>
+    <form [ngClass]="'loginform'" [formGroup]="loginForm" (ngSubmit)="AuthorizeUser()">
+        <label for="email">Email Address</label>
+        <input id="email" type="text" formControlName="email" placeholder="Enter your email address" required>
+        <label for="password">Password</label>
+        <input id="password" type="text" formControlName="password" placeholder="Enter your password" required>
+        <div [ngClass]="'loginbtn'">
+            <button type="submit">Login</button>
+            <a href="">Forgot Password?</a>
+        </div>
+    </form>
+</div>

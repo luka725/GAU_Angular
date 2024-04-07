@@ -1,0 +1,26 @@
+.logincontainer{
+    padding: 15px;
+}
+.logincontainer h3{
+    padding-bottom: 20px;
+}
+.loginform{
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+}
+.loginform input{
+    margin-bottom: 10px;
+}
+.loginform label{
+    margin-bottom: 5px;
+}
+.loginbtn{
+    height: 7rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.loginbtn a{
+    margin-left: 30px;
+}
