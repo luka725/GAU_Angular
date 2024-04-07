@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -9,7 +9,12 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './reactive-form.component.css'
 })
 export class ReactiveFormComponent {
-
+  constructor(private formBuilder:FormBuilder){}
+  OnInit(){
+    this.simpleForm = this.formBuilder.group({
+      Name:["", Validators.required]
+    })
+  }
   simpleForm:FormGroup = new FormGroup({
     Name : new FormControl("")
   })
