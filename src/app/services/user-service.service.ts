@@ -46,8 +46,7 @@ export class UserServiceService {
   getUsersList(){
     return this.UsersList;
   }
-  getUserById(id:number){
-    let index = this.UsersList.findIndex(obj => obj.id === id)
-    return this.UsersList[index]
+  getUserById(id:number){ 
+    return this.UsersList.find(obj => obj.id === id)
   }
 }
