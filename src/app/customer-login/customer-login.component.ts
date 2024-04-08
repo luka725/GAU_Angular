@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ProductService } from '../services/product.service';
 @Component({
   selector: 'app-customer-login',
   standalone: true,
@@ -9,8 +10,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './customer-login.component.css'
 })
 export class CustomerLoginComponent {
-
-  constructor(private fb: FormBuilder) {}
+  currentUser:any;
+  constructor(private fb: FormBuilder, private service: ProductService) {}
 
   OnInit(){
     this.loginForm = this.fb.group({
@@ -26,7 +27,9 @@ export class CustomerLoginComponent {
 
   AuthorizeUser(){
     if(this.loginForm.valid){
-
+      this.currentUser = this.service.getUser(this.loginForm.value.email, this.loginForm.value.password)
+      console.log(this.currentUser.id)
+      this.service.setDetails(this.currentUser.id)
     }else{
       console.log("xuxuni")
     }
