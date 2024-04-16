@@ -1,0 +1,19 @@
+.cartheader{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.item{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.item img{
+    width: 20%;
+}
+.cart {
+    justify-content: center;
+    align-items: center;
+}

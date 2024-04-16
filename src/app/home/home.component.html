@@ -1,0 +1,16 @@
+<div class="products-container">
+    <div *ngFor="let product of products" class="product">
+        <img src="assets/images/{{product.imageName}}" alt="{{ product.name }}">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <div class="price-container">
+            <span class="price">{{ product.price - product.discount }}</span>
+            <span *ngIf="product.discount" class="old-price">{{ product.price + product.discount }}</span><br>
+            <span *ngIf="product.discountPercentage" class="discount">{{ product.discountPercentage }}% off</span>
+            <span *ngIf="product.isNew" class="new">New</span>
+        </div>
+        <div class="overlay">
+            <button class="add-to-cart-btn" (click)="addToCart(product)">Add to Cart</button>
+        </div>
+    </div>
+</div>

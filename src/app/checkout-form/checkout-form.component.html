@@ -1,0 +1,23 @@
+<section class="checkoutmain">
+<app-cart></app-cart>
+<div class="formwrapper">
+    <h2>Billing Details</h2>
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+        <label for="">First Name</label>
+        <input type="text" formControlName="firstName" required>
+        <label for="">Last Name</label>
+        <input type="text" formControlName="lastName" required>
+        <label for="">Country / Region</label>
+        <input type="text" formControlName="country" required>
+        <label for="">Town / City</label>
+        <input type="text" formControlName="city" required>
+        <label for="">Province</label>
+        <input type="text" formControlName="province" required>
+        <label for="">ZIP code</label>
+        <input type="text" formControlName="zip" required>
+        <label for="">Email address</label>
+        <input type="text" formControlName="email" required>
+        <button type="submit">Place Order</button>
+    </form>
+</div>
+</section>

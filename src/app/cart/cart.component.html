@@ -1,0 +1,17 @@
+<section class="cart">
+    <div class="cartheader">
+        <div>Product</div>
+        <div>Price</div>
+        <div>Quantity</div>
+        <div>Subtotal</div>
+    </div>
+    <div class="cartproductswrapper">
+        <div *ngFor="let item of items" class="item">
+            <img src="assets/images/{{item.imageName}}" alt="{{ item.name }}" alt="">
+            <div>{{item.name}}</div>
+            <button (click)="decrement(item.id)">-</button><input type="number" value="{{item.quantity}}"><button (click)="increment(item.id)">+</button>
+            <div>{{item.total}}</div>
+            <button (click)="removeFromCart(item.id)">Remove</button>
+        </div>
+    </div>
+</section>
