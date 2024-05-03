@@ -1,0 +1,39 @@
+/* app.component.css */
+
+/* Style the toolbar */
+.mat-toolbar {
+    color: white; /* Set text color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  /* Style the container for navigation links */
+  .mat-toolbar > div {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space items evenly */
+    width: 100%; /* Full width */
+  }
+  
+  /* Style the navigation links */
+  .mat-toolbar button.mat-button {
+    color: rgba(255, 255, 255, 0.7); /* Set default text color */
+    font-weight: bold; /* Add bold font weight */
+    text-transform: uppercase; /* Convert text to uppercase */
+    letter-spacing: 1px; /* Add some letter spacing */
+    margin: 0 10px; /* Add space between buttons */
+    transition: color 0.3s ease; /* Smooth transition for text color */
+  }
+  
+  /* Change color of active link */
+  .mat-toolbar button.mat-button.router-link-active {
+    color: #fff; /* Change text color for active link */
+  }
+  
+  /* Hover effect on navigation links */
+  .mat-toolbar button.mat-button:hover {
+    color: #fff; /* Change text color on hover */
+    background-color: rgba(10, 104, 161, 0.1); /* Lighten background */
+    border-radius: 4px; /* Add border radius */
+    transition: background-color 0.3s ease; /* Smooth transition for background */
+  }
+  
