@@ -28,5 +28,6 @@ export class UserService {
       password: "1234",
     },
   ]
-
+  isLoggedIn:boolean = false;
+  
 }
