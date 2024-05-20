@@ -2,7 +2,7 @@
     margin: auto;
     max-width: 500px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 50px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -46,7 +46,8 @@ button[type="submit"]:hover {
 .login-container {
     max-width: 400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 50px;
+    margin-top: 50px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
