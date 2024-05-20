@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-
+import { UserService } from '../services/user/user.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -11,7 +12,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 export class LoginComponent {
   loginForm!:FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private userService:UserService, private router:Router) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -26,8 +27,14 @@ export class LoginComponent {
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      // Your login logic here
-      console.log(this.loginForm.value);
+      const { username, password } = this.loginForm.value;
+      const loginSuccess = this.userService.login(username, password);
+      if (loginSuccess) {
+        this.router.navigate(['/']);
+        console.log('Login successful');
+      } else {
+        console.log('Invalid credentials');
+      }
     }
   }
 }

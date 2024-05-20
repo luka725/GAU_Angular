@@ -4,7 +4,7 @@
     </div>
     <app-menu></app-menu>
     <div class="user-info">
-      Hello User
-      <a routerLink="/" class="logout">Log out</a>
+      <span *ngIf="userName">Hello, {{ userName }}!</span>
+      <a routerLink="/" class="logout" (click)="onLogout()">Log out</a>
     </div>
   </header>
