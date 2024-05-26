@@ -14,3 +14,10 @@ app-root{
 app-footer{
     margin-top: auto;
 }
+app-contact{
+    min-width: 100vw;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

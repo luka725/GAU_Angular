@@ -1,0 +1,45 @@
+<div class="contact-container">
+    <div class="contact-info">
+      <h2>Let's talk</h2>
+      <p>We collaborate with thousands of creators, entrepreneurs and complete legends.</p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <fa-icon [icon]="faEnvelope"></fa-icon>
+          <span>Our email</span>
+          <a href="mailto:hello@example.com">hello&#64;example.com</a>
+        </div>
+        <div class="contact-item">
+          <fa-icon [icon]="faPhone"></fa-icon>
+          <span>Call us</span>
+          <a href="tel:+1234567892">+123 456 7892</a>
+        </div>
+        <div class="contact-item">
+          <fa-icon [icon]="faMapMarkerAlt"></fa-icon>
+          <span>Find us</span>
+          <a href="https://www.google.com/maps" target="_blank">Open Google Maps</a>
+        </div>
+      </div>
+      <div class="social-icons">
+        <a href="#"><fa-icon [icon]="faFacebookF"></fa-icon></a>
+        <a href="#"><fa-icon [icon]="faInstagram"></fa-icon></a>
+        <a href="#"><fa-icon [icon]="faLinkedinIn"></fa-icon></a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input formControlName="firstName" type="text" placeholder="First name" required>
+          <input formControlName="lastName" type="text" placeholder="Last name" required>
+        </div>
+        <div class="form-group">
+          <input formControlName="email" type="email" placeholder="Email" required>
+          <input formControlName="phone" type="tel" placeholder="Phone" required>
+        </div>
+        <div class="form-group">
+          <textarea formControlName="message" placeholder="Message" rows="4" required></textarea>
+        </div>
+        <button type="submit" [disabled]="contactForm.invalid">Submit Now</button>
+      </form>
+    </div>
+  </div>
+  
