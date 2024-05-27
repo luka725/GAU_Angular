@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, last } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 interface User{
   id:number,
   firstname:string,
@@ -7,13 +8,19 @@ interface User{
   username:string,
   password:string,
 }
-
+interface Message {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  message: string;
+}
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
-  constructor() { }
+  private apiUrl = 'http://localhost:3000/api/messages';
+  constructor(private http: HttpClient) { }
 
   users:User[] = [
     {
@@ -32,13 +39,18 @@ export class UserService {
     },
   ]
   private isLoggedIn: boolean = false;
+
   private usernameSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
-  username$: Observable<string | null> = this.usernameSubject.asObservable();
   
+  username$: Observable<string | null> = this.usernameSubject.asObservable();
+
+  addUser(newUser: User): void {
+    newUser.id = this.users.length + 1;
+    this.users.push(newUser);
+  }
   checkUserExists(username: string, password: string): boolean {
     return this.users.some(user => user.username === username && user.password === password);
   }
-
   login(username: string, password: string): boolean {
     const userExists = this.checkUserExists(username, password);
     if (userExists) {
@@ -56,5 +68,11 @@ export class UserService {
   }
   setUsername(username: string): void {
     this.usernameSubject.next(username);
+  }
+  addMessage(message: Message): Observable<any> {
+    return this.http.post(this.apiUrl, message);
+  }
+  getMessages(): Observable<Message[]> {
+    return this.http.get<Message[]>(this.apiUrl);
   }
 }

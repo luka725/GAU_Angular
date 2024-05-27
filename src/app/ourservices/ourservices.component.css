@@ -1,0 +1,56 @@
+.servicesheadline{
+    font-size: 30px;
+    color: #64CCC5;
+    font-weight: 600;
+}
+.servicessubtext{
+    font-size: 64px;
+    font-weight: 600;
+    color: #0C0C0C;   
+    text-align: center; 
+}
+.services {
+    padding: 20px 0 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 80%;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .services h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .services p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .service {
+    background-color: #F4F4F4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    transition: all 0.2s ease-in-out;
+    width: calc(25% - 20px);
+    cursor: pointer;
+    min-height: 200px;
+  }
+  
+  .service:hover {
+    background-color: #000000;
+    color: white;
+    transform: scale(1.02);
+  }
+  

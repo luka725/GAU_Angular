@@ -5,6 +5,6 @@
     <app-menu></app-menu>
     <div class="user-info">
       <span *ngIf="userName">Hello, {{ userName }}!</span>
-      <a routerLink="/" class="logout" (click)="onLogout()">Log out</a>
+      <a *ngIf="userName" routerLink="/" class="logout" (click)="onLogout()">Log out</a>
     </div>
   </header>
