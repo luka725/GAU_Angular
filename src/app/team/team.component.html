@@ -1,0 +1,8 @@
+<h2>Our team</h2>
+<div class="team-members">
+  <div class="team-member" *ngFor="let member of teamMembers">
+    <img [src]="member.img" alt="{{ member.name }}">
+    <h3>{{ member.name }}</h3>
+    <p>{{ member.position }}</p>
+  </div>
+</div>
