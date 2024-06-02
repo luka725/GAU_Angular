@@ -1,0 +1,17 @@
+<div *ngIf="(loading$ | async) || (error$ | async)">
+  <ng-container *ngIf="loading$ | async; else errorSection">
+    Loading...
+  </ng-container>
+  <ng-template #errorSection>
+    Error: {{ error$ | async }}
+  </ng-template>
+</div>
+
+<div *ngIf="!(loading$ | async) && !(error$ | async)">
+  <h1>Room Types</h1>
+  <div class="rooms-container">
+    <div *ngFor="let room of rooms$ | async" class="room-details">
+      <app-room-details [room]="room"></app-room-details>
+    </div>
+  </div>
+</div>

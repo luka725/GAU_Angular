@@ -1,0 +1,23 @@
+<div class="room-details">
+  <div>
+    <h2>{{ room.name }}</h2>
+    <p>{{ room.description }}</p>
+    <p>Price: {{ room.defaultPrice | currency }}</p>
+    <p>Quantity: {{ room.quantity }}</p>
+    <p>Max Adults: {{ room.maxAdult }}</p>
+    <p>Max Children: {{ room.maxChildren }}</p>
+    <p>Max People: {{ room.maxPeople }}</p>
+  </div>
+  <div *ngIf="room.facilities && room.facilities.length > 0">
+    <h3>Facilities:</h3>
+    <ul>
+      <li *ngFor="let facility of room.facilities">{{ facility }}</li>
+    </ul>
+  </div>
+  <div class="room-images" *ngIf="room.image && room.image.length > 0">
+    <h3>Image:</h3>
+    <div class="image-gallery">
+      <img [src]="encodeImage(room.image)" alt="Room Image">
+    </div>
+  </div>
+</div>

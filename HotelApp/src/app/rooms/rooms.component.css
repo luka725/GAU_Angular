@@ -1,0 +1,10 @@
+.rooms-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .room-details {
+    width: calc(33.33% - 20px); /* Adjust the width of each room to fit three rooms in one line */
+    margin: 0 10px 20px;
+  }
+  

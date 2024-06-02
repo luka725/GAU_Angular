@@ -1,0 +1,38 @@
+/* Style the toolbar */
+.mat-toolbar {
+    background-color: #1976d2; /* Primary color */
+    color: white; /* Text color */
+  }
+  
+  /* Style the toolbar row */
+  .mat-toolbar-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Style the spacer */
+  .spacer {
+    flex: 1; /* Fill the remaining space */
+  }
+  
+  /* Style the button */
+  .mat-icon-button {
+    color: white; /* Text color */
+  }
+  
+  /* Style the button text */
+  .mat-icon-button span {
+    margin-left: 4px; /* Add some space between icon and text */
+  }
+  
+  /* Apply margin only to buttons after the first one */
+  .mat-icon-button + .mat-icon-button {
+    margin-left: 16px; /* Adjust the left margin */
+  }
+  mat-toolbar-row button{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
