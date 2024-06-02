@@ -1,0 +1,8 @@
+<div *ngIf="loading$ | async">Loading...</div>
+<div *ngIf="error$ | async as error">Error: {{ error }}</div>
+<div *ngIf="bookings$ | async as bookings">
+  <h1>Bookings</h1>
+  <ul>
+    <li *ngFor="let booking of bookings">{{ booking.createDate }} - {{ booking.checkoutDate }}</li>
+  </ul>
+</div>
