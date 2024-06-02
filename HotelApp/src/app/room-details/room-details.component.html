@@ -1,5 +1,5 @@
 <div class="room-details">
-  <div>
+  <div (click)="navigateToSingleRoom(room)">
     <h2>{{ room.name }}</h2>
     <p>{{ room.description }}</p>
     <p>Price: {{ room.defaultPrice | currency }}</p>

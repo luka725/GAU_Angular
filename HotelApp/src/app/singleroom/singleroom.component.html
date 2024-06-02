@@ -1,0 +1,36 @@
+<div *ngIf="(loading$ | async) || (error$ | async)">
+    <ng-container *ngIf="loading$ | async; else errorSection">
+      Loading...
+    </ng-container>
+    <ng-template #errorSection>
+      Error: {{ error$ | async }}
+    </ng-template>
+</div>
+<div *ngIf="room$ | async as room">
+    <div class="room-details">
+        <div>
+            <h2>{{ room.name }}</h2>
+            <p>{{ room.description }}</p>
+            <p>Price: {{ room.defaultPrice | currency }}</p>
+            <p>Quantity: {{ room.quantity }}</p>
+            <p>Max Adults: {{ room.maxAdult }}</p>
+            <p>Max Children: {{ room.maxChildren }}</p>
+            <p>Max People: {{ room.maxPeople }}</p>
+        </div>
+        <div *ngIf="room.facilities && room.facilities.length > 0">
+            <h3>Facilities:</h3>
+            <ul>
+                <li *ngFor="let facility of room.facilities">
+                    <img [src]="facility.facilityImage" alt="{{ facility.facilityName }}">
+                    {{ facility.facilityName }}
+                </li>
+            </ul>
+        </div>
+        <div class="room-images" *ngIf="room.images && room.images.length > 0">
+            <h3>Images:</h3>
+            <div class="image-gallery">
+                <img *ngFor="let image of room.images" [src]="encodeImage(image.imageData)" alt="Room Image">
+            </div>
+        </div>
+    </div>
+</div>

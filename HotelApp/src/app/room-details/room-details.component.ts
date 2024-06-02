@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 interface RoomDetails {
   roomTypeId: number;
@@ -23,11 +24,13 @@ interface RoomDetails {
 export class RoomDetailsComponent implements OnInit {
   @Input() room!: RoomDetails;
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer, private router: Router) {}
 
   encodeImage(imageUrl: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustUrl(imageUrl);
   }
-
+  navigateToSingleRoom(room:any){
+    this.router.navigate(['/room', room.roomTypeId]);
+  }
   ngOnInit(): void { }
 }

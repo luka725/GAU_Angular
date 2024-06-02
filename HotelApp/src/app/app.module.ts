@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { ApiService } from './services/api-service/api.service';
 import { roomReducer } from './store/reducers/room.reducers';
 import { RoomEffects } from './store/effects/room.effects';
+import { singleRoomReducer } from './store/reducers/singleroom.reducers';
+import { SingleRoomEffects } from './store/effects/singleroom.effects';
 import { bookingReducer } from './store/reducers/booking.reducers';
 import { BookingEffects } from './store/effects/booking.effects';
 import { couponReducer } from './store/reducers/coupon.reducers';
@@ -28,6 +30,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
 import { LoginComponent } from './login/login.component';
+import { SingleroomComponent } from './singleroom/singleroom.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,8 @@ import { LoginComponent } from './login/login.component';
     NavigationComponent,
     RoomsComponent,
     RoomDetailsComponent,
-    LoginComponent
+    LoginComponent,
+    SingleroomComponent
   ],
   imports: [
     CommonModule,
@@ -52,9 +56,10 @@ import { LoginComponent } from './login/login.component';
     StoreModule.forRoot({ 
       bookingdata: bookingReducer,
       coupondata: couponReducer,
-      roomdata: roomReducer
+      roomdata: roomReducer,
+      singleroomdata: singleRoomReducer
      }),
-    EffectsModule.forRoot([BookingEffects, CouponsEffects, RoomEffects]),
+    EffectsModule.forRoot([BookingEffects, CouponsEffects, RoomEffects, SingleRoomEffects]),
     RouterModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25 // Retains last 25 states
