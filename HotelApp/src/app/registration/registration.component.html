@@ -1,0 +1,45 @@
+<form *ngIf="registrationForm" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Email</label>
+      <input type="email" formControlName="email">
+      <div *ngIf="registrationForm.get('email')?.errors?.['required']">Email is required</div>
+      <div *ngIf="registrationForm.get('email')?.errors?.['email']">Invalid email format</div>
+    </div>
+    
+    <div>
+      <label>Password</label>
+      <input type="password" formControlName="password">
+      <div *ngIf="registrationForm.get('password')?.errors?.['required']">Password is required</div>
+      <div *ngIf="registrationForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long</div>
+    </div>
+  
+    <div>
+      <label>Avatar</label>
+      <input type="text" formControlName="avatar">
+    </div>
+  
+    <div>
+      <label>Name</label>
+      <input type="text" formControlName="name">
+      <div *ngIf="registrationForm.get('name')?.errors?.['required']">Name is required</div>
+    </div>
+  
+    <div>
+      <label>Phone Number</label>
+      <input type="text" formControlName="phoneNumber">
+    </div>
+  
+    <div>
+      <label>Gender</label>
+      <select formControlName="gender">
+        <option [ngValue]="0" selected>Select Gender</option>
+        <option [ngValue]="1">Male</option>
+        <option [ngValue]="2">Female</option>
+        <option [ngValue]="3">Other</option>
+      </select>
+      <div *ngIf="registrationForm.get('gender')?.errors?.['required']">Gender is required</div>
+    </div>
+  
+    <button type="submit" [disabled]="registrationForm.invalid">Register</button>
+  </form>
+  

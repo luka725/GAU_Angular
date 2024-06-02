@@ -30,4 +30,8 @@ export class ApiService {
   deleteItem(endpoint: string, itemId: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${endpoint}/${itemId}`);
   }
+
+  registerUser(userData: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/register`, userData);
+  }
 }
