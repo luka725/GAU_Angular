@@ -1,5 +1,6 @@
-import { DataState } from './data.state';
-
+import { BookingState } from './booking.state';
+import { CouponState } from './coupon.state';
 export interface AppState {
-  data: DataState;
+  bookingdata: BookingState,
+  coupondata: CouponState
 }

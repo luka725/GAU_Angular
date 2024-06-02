@@ -1,0 +1,8 @@
+<div *ngIf="loading$ | async">Loading...</div>
+<div *ngIf="error$ | async as error">Error: {{ error }}</div>
+<div *ngIf="coupons$ | async as coupons">
+  <h1>Coupons</h1>
+  <ul>
+    <li *ngFor="let coupon of coupons">{{ coupon.couponCode }} - {{ coupon.endDate }}</li>
+  </ul>
+</div>
