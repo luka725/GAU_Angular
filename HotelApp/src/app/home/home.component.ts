@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { loadData } from '../store/actions/data.actions';
+import { loadData } from '../store/actions/data.actions'; // Import loadData action
 import { AppState } from '../store/state/app.state';
 import { selectData, selectLoading, selectError } from '../store/selectors/data.selectors';
 
@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
     this.loading$ = this.store.select(selectLoading);
     this.error$ = this.store.select(selectError);
 
-    this.store.dispatch(loadData());
+    // Dispatch the loadData action with the appropriate endpoint
+    this.store.dispatch(loadData({ endpoint: 'booking/get' }));
   }
 }

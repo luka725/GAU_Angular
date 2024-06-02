@@ -11,11 +11,12 @@ export class DataEffects {
     loadData$ = createEffect(() =>
         this.actions$.pipe(
             ofType(loadData),
-            mergeMap(() =>
-            this.apiService.getBookings().pipe(
-                map(data => loadDataSuccess({ data })),
-                catchError(error => of(loadDataFailure({ error })))
-            )
+            mergeMap(action =>
+                // Call getItems method with the endpoint and ID from the action payload
+                this.apiService.getItem(action.endpoint, action.id).pipe(
+                    map(data => loadDataSuccess({ data })),
+                    catchError(error => of(loadDataFailure({ error })))
+                )
             )
         )
     );
