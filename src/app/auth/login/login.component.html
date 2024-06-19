@@ -4,7 +4,7 @@
     </mat-card-header>
     <mat-card-content>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="fill">
+        <mat-form-field class="form-login" appearance="fill">
           <mat-label>User Name</mat-label>
           <input matInput formControlName="username" type="text" required>
           <mat-error *ngIf="username!.hasError('required')">
@@ -15,7 +15,7 @@
           </mat-error>
         </mat-form-field>
   
-        <mat-form-field appearance="fill">
+        <mat-form-field class="form-login" appearance="fill">
           <mat-label>Password</mat-label>
           <input matInput formControlName="password" type="password" required>
           <mat-error *ngIf="password!.hasError('required')">
@@ -27,4 +27,8 @@
       </form>
     </mat-card-content>
   </mat-card>
+  <!-- Error message display -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
   
