@@ -32,10 +32,10 @@ export class ApiService {
   }
 
   registerUser(userData: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/register`, userData);
+    return this.http.post(`${this.apiUrl}/account/register`, userData);
   }
 
-  login(credentials: { email: string; password: string }): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, credentials);
+  login(email: string, password: string ): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/account/login`, { email, password });
   }
 }

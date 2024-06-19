@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      this.apiService.login(this.loginForm.value).subscribe({
+      this.apiService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
         next: (response) => {
           if (response.success) {
             console.log('Login successful:', response.message);
