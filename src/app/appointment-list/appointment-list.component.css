@@ -1,0 +1,31 @@
+.filter-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-field {
+    width: 300px;   
+}
+
+.mat-elevation-z8 {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.mat-column-patientName, .mat-column-doctorName {
+    flex: 1;
+    min-width: 150px;
+}
+
+.mat-column-appointmentType, .mat-column-status, .mat-column-paymentStatus {
+    flex: 1;
+    min-width: 120px;
+}
+
+.mat-column-appointmentDateTime {
+    flex: 1.5;
+    min-width: 200px;
+}
+  

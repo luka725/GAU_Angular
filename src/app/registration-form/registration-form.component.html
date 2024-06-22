@@ -1,0 +1,61 @@
+<section>
+
+<!-- Success message -->
+<div *ngIf="registrationSuccessMessage" class="alert alert-success">
+{{ registrationSuccessMessage }}
+</div>
+
+<!-- Error message -->
+<div *ngIf="registrationErrorMessage" class="alert alert-danger">
+{{ registrationErrorMessage }}
+</div>
+
+<h2 class="form-heading">Register</h2>
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username">
+      <mat-error *ngIf="registrationForm.get('username')!.hasError('required')">Username is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password">
+      <mat-error *ngIf="registrationForm.get('password')!.hasError('required')">Password is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName">
+      <mat-error *ngIf="registrationForm.get('firstName')!.hasError('required')">First Name is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName">
+      <mat-error *ngIf="registrationForm.get('lastName')!.hasError('required')">Last Name is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email">
+      <mat-error *ngIf="registrationForm.get('email')!.hasError('required')">Email is required</mat-error>
+      <mat-error *ngIf="registrationForm.get('email')!.hasError('email')">Enter a valid email address</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Phone Number</mat-label>
+      <input matInput formControlName="phoneNumber">
+      <mat-error *ngIf="registrationForm.get('phoneNumber')!.hasError('required')">Phone Number is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="roleId">
+          <mat-option *ngFor="let role of roles" [value]="role.RoleID">{{ role.RoleName }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="registrationForm.get('roleId')!.hasError('required')">Role is required</mat-error>
+      </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Register</button>
+  </form>
+</section>

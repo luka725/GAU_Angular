@@ -1,1 +1,14 @@
-<p>home works!</p>
+<mat-card *ngIf="userData" class="header">
+    <mat-card-header style="padding: 0 0 0 10px;">
+      <mat-card-title>Welcome, {{ userData.Username }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Email: {{ userData.Email }}</p>
+      <p>Role: {{ userData.Roles.RoleName }}</p>
+    </mat-card-content>
+  </mat-card>
+  
+  <div *ngIf="!userData">
+    <mat-spinner></mat-spinner>
+  </div>
+  

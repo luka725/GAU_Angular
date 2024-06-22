@@ -1,0 +1,20 @@
+mat-card {
+    border-radius: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 20px 0;
+    flex-direction: row;
+}
+mat-spinner {
+    display: block;
+    margin: 50px auto;
+}
+.header{
+    width: 100%;
+}
+.header *{
+    color: #fff;
+}
+  

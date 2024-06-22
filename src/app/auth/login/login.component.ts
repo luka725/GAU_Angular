@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth/auth.service';
+import { UnifiedService } from '../../services/unified.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   errorMessage!: string;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
+  constructor(private fb: FormBuilder, private authService: UnifiedService, private router: Router) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -37,23 +38,19 @@ export class LoginComponent implements OnInit {
       this.authService.login(username, password).pipe(
         catchError((error: HttpErrorResponse) => {
           if (error.error instanceof ErrorEvent) {
-            // Client-side error
             this.errorMessage = 'Network error occurred. Please try again later.';
           } else if (error.status === 401) {
-            // Unauthorized - Invalid credentials
             this.errorMessage = 'Invalid username or password. Please try again.';
           } else {
-            // Other errors
             this.errorMessage = `Error ${error.status}: ${error.message}`;
           }
-          throw error; // Rethrow the error to propagate it downstream
+          return of(null); // Return a null observable to end the observable chain
         })
-      ).subscribe(() => {
-        this.router.navigate(['/home']);
-        console.log("yeaa")
+      ).subscribe(success => {
+        if (success) {
+          this.router.navigate(['/home']);
+        }
       });
-    } else {
-      // Form validation failed, handle as needed (optional)
     }
   }
 }
