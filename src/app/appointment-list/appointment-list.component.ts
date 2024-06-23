@@ -46,8 +46,8 @@ export class AppointmentListComponent implements OnInit {
       patientName: this.filterForm.value.patientName,
       appointmentType: this.filterForm.value.appointmentType,
       paymentStatus: this.filterForm.value.paymentStatus,
-      page: this.currentPage.toString(),
-      pageSize: this.pageSize.toString()
+      page: this.currentPage,
+      pageSize: this.pageSize
     };
 
     this.appointmentService.getAppointments(params).pipe(
@@ -55,7 +55,7 @@ export class AppointmentListComponent implements OnInit {
         console.log('API Response:', response); // Debugging the response
         if (Array.isArray(response)) {
           this.appointments = response;
-          this.totalItems = response.length; // Assuming totalItems is the length of the response array
+          this.totalItems = response.length + 10; // Assuming totalItems is the length of the response array
         } else {
           console.error('Unexpected API response structure:', response);
           this.appointments = [];
@@ -75,9 +75,9 @@ export class AppointmentListComponent implements OnInit {
     this.pageSize = event.pageSize;
     this.fetchAppointments();
   }
-
+  
   onFilterChange(): void {
-    this.currentPage = 1; // Reset to first page when filters change
+    this.currentPage = 0; // Reset to first page when filters change
     this.fetchAppointments();
   }
 }

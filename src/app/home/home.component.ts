@@ -27,7 +27,9 @@ export class HomeComponent implements OnInit {
       }
     );
   }
-
+  logOut():void{
+    this.userService.logout();
+  }
   fetchUserData(): void {
     this.userService.getUserInfo().pipe(
       catchError(error => {

@@ -6,9 +6,15 @@
       <p>Email: {{ userData.Email }}</p>
       <p>Role: {{ userData.Roles.RoleName }}</p>
     </mat-card-content>
+    <mat-card-content>
+      <a mat-button routerLink="/register">Register new user</a>
+    </mat-card-content>
+    <mat-card-content>
+      <button mat-raised-button color="primary" (click)="logOut()">Log Out</button>
+    </mat-card-content>
   </mat-card>
   
   <div *ngIf="!userData">
     <mat-spinner></mat-spinner>
   </div>
-  
+  <app-appointment-list></app-appointment-list>
