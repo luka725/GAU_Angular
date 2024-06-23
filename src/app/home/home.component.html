@@ -6,7 +6,7 @@
       <p>Email: {{ userData.Email }}</p>
       <p>Role: {{ userData.Roles.RoleName }}</p>
     </mat-card-content>
-    <mat-card-content>
+    <mat-card-content *ngIf="userData.Roles.RoleName === 'Administrator'">
       <a mat-button routerLink="/register">Register new user</a>
     </mat-card-content>
     <mat-card-content>

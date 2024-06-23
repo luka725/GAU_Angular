@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthNotGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'register', component:  RegistrationFormComponent, data: { expectedRole: 'Administrator' } },
+  { path: 'register', component:  RegistrationFormComponent, canActivate: [AuthGuard], data: { expectedRole: 'Administrator' } },
   { path: 'appointments', component: AppointmentListComponent},
   { path: '**', redirectTo: '/home' }
 ];

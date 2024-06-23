@@ -15,14 +15,25 @@ export class UnifiedService {
   private userInfoFetched = false;
 
   constructor(private http: HttpClient, private router: Router) {
-    // Initialize user if token exists in localStorage
     const token = localStorage.getItem(this.tokenKey);
     if (token && !this.userInfoFetched) {
-      this.getUserInfo().subscribe();
+      this.fetchUserData().subscribe();
     }
   }
 
-  // User-related methods
+  private fetchUserData(): Observable<any> {
+    if (!this.userInfoFetched) {
+      return this.http.get<any>(`${this.apiUrl}/users/me`).pipe(
+        tap(response => {
+          this.userSubject.next(response);
+          this.userInfoFetched = true;
+        }),
+        catchError(this.handleError<any>('fetchUserData'))
+      );
+    } else {
+      return this.user$;
+    }
+  }
 
   getUserRole(): Observable<string> {
     return this.user$.pipe(
@@ -36,13 +47,7 @@ export class UnifiedService {
   }
 
   getUserInfo(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/users/me`).pipe(
-      tap((data) => {
-        this.userSubject.next(data);
-        this.userInfoFetched = true; // Store user data in BehaviorSubject
-      }),
-      catchError(this.handleError<any>('getUserInfo'))
-    );
+    return this.user$;
   }
 
   clearUserInfo(): void {
@@ -55,13 +60,8 @@ export class UnifiedService {
 
   hasRole(roleName: string): boolean {
     const user = this.getUser();
-    if (user && user.roles) {
-      return user.roles.includes(roleName);
-    }
-    return false;
+    return user?.Roles?.RoleName === roleName;
   }
-
-  // Authentication-related methods
 
   login(username: string, password: string): Observable<boolean | Object> {
     return this.http.post<{ Token: string, ExpiryDate: string }>(`${this.apiUrl}/users/login`, { username, password })
@@ -70,7 +70,7 @@ export class UnifiedService {
           localStorage.setItem(this.tokenKey, response.Token);
           const expiryDate = new Date(response.ExpiryDate);
           localStorage.setItem('expiryDate', expiryDate.toISOString());
-          this.getUserInfo().subscribe(); // Fetch user info after login
+          this.fetchUserData().subscribe();
           const returnUrl = this.router.routerState.snapshot.root.queryParams['returnUrl'] || '/home';
           this.router.navigate([returnUrl]);
         }),
@@ -85,6 +85,7 @@ export class UnifiedService {
     this.router.navigate(['/login']);
   }
 
+
   isLoggedIn(): boolean {
     return !!localStorage.getItem(this.tokenKey);
   }
@@ -92,8 +93,6 @@ export class UnifiedService {
   getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
   }
-
-  // Other service methods (example: roles, register, appointments)
 
   getRoles(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/users/roles`)
@@ -112,16 +111,14 @@ export class UnifiedService {
     queryParams = queryParams.set('patientName', params.patientName || '');
     queryParams = queryParams.set('appointmentType', params.appointmentType || '');
     queryParams = queryParams.set('paymentStatus', params.paymentStatus || '');
-    queryParams = queryParams.set('page', params.page.toString());
-    queryParams = queryParams.set('pageSize', params.pageSize.toString());
+    queryParams = queryParams.set('page', params.page);
+    queryParams = queryParams.set('pageSize', params.pageSize);
 
     return this.http.get<any>(`${this.apiUrl}/appointments`, { params: queryParams })
       .pipe(
         catchError(this.handleError<any>('getAppointments'))
       );
   }
-
-  // Error handling method
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

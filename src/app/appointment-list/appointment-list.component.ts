@@ -52,10 +52,9 @@ export class AppointmentListComponent implements OnInit {
 
     this.appointmentService.getAppointments(params).pipe(
       tap(response => {
-        console.log('API Response:', response); // Debugging the response
-        if (Array.isArray(response)) {
-          this.appointments = response;
-          this.totalItems = response.length + 10; // Assuming totalItems is the length of the response array
+        if (response && response.TotalItems !== undefined && response.Items) {
+          this.appointments = response.Items;
+          this.totalItems = response.TotalItems;
         } else {
           console.error('Unexpected API response structure:', response);
           this.appointments = [];
@@ -75,9 +74,9 @@ export class AppointmentListComponent implements OnInit {
     this.pageSize = event.pageSize;
     this.fetchAppointments();
   }
-  
+
   onFilterChange(): void {
-    this.currentPage = 0; // Reset to first page when filters change
+    this.currentPage = 1; // Reset to first page when filters change
     this.fetchAppointments();
   }
 }

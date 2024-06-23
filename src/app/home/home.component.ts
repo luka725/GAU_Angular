@@ -16,31 +16,22 @@ export class HomeComponent implements OnInit {
   constructor(private userService: UnifiedService) {}
 
   ngOnInit(): void {
-    this.fetchUserData();
-    this.userService.getUserRole().subscribe(
-      role => {
-        this.userRole = role;
-        console.log('User Role:', this.userRole);
-      },
-      error => {
-        console.error('Error fetching user role:', error);
-      }
-    );
-  }
-  logOut():void{
-    this.userService.logout();
-  }
-  fetchUserData(): void {
-    this.userService.getUserInfo().pipe(
+    this.userService.user$.pipe(
       catchError(error => {
         console.error('Error fetching user data:', error);
         this.errorMessage = 'Failed to fetch user data. Please try again later.';
-        return of(null); // Return a null observable to end the observable chain
+        return of(null); // Return an observable with default value
       })
     ).subscribe(data => {
       if (data) {
         this.userData = data;
+        this.userRole = data.Roles?.RoleName || 'Unknown';
+        console.log('User Role:', this.userRole);
       }
     });
+  }
+
+  logOut(): void {
+    this.userService.logout();
   }
 }
